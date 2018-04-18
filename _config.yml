@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Xiaosl的个人博客
-subtitle: 瞎折腾
+title: 无为
+subtitle: 道常无为而无不为
 description: 不断尝试才能发现更好的
 keywords:
 author: xiaosl
@@ -27,7 +27,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -75,10 +75,6 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 plugins: hexo-generator-feed
 
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
 ## Themes: https://hexo.io/themes/
 theme: next
 
