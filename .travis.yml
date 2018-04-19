@@ -18,11 +18,11 @@ after_script:
   - git config user.name "lijiangwei"
   - git config user.email "544172066@qq.com"
   - git add .
-  - git commit -m "Update blog"
+  - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
   # 推送到github
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
   # 推送到gitee
-  - git push --force --quiet "https://${GE_REF}=${GE_TOKEN}" master:master
+  - git push --force --quiet "https://lijiangwei:${GE_TOKEN}@${GE_REF}" master:master
 # E: Build LifeCycle
 
 branches:
@@ -31,4 +31,4 @@ branches:
 env:
  global:
    - GH_REF: github.com/lijiangwei/lijiangwei.github.io.git
-   - GE_REF: gitee.com/lijiangwei/lijiangwei.git?private_token
+   - GE_REF: gitee.com/lijiangwei/lijiangwei.git
