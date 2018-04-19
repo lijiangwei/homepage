@@ -14,7 +14,7 @@ categories:
 参考官网教程：[中文官网](https://hexo.io/zh-cn/)
 
 ## 主题设置
-推荐使用NextT主题[next使用教程](http://theme-next.iissnan.com/getting-started.html)
+推荐使用NexT主题[next使用教程](http://theme-next.iissnan.com/getting-started.html)
 
 ## 设置中文
 修改配置文件(_config.yml)
@@ -48,12 +48,6 @@ local_search:
 ```
 
 <!-- more -->
-
-### Fock me on Github
-***效果图***
-![](http://p7dkryqvb.bkt.clouddn.com/fockmegithub.png)
-点击[这里](http://tholman.com/github-corners/)或者[这里](https://blog.github.com/2008-12-19-github-ribbons/)挑选自己喜欢的样式，并复制代码。
-粘贴代码到`themes/next/layout/_layout.swig`文件中(放在`<div class="headband"></div>`的下面)，并把`href`改为你的github地址。
 
 ### 设置动态背景
 ***效果图***
