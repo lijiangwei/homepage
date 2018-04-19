@@ -27,4 +27,4 @@ branches:
     - master
 env:
  global:
-   - GH_REF: github.com/lijiangwei/homepage.git
+   - GH_REF: github.com/lijiangwei/lijiangwei.github.io.git
