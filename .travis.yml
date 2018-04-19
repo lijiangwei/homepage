@@ -1,6 +1,12 @@
 language: node_js
 node_js: stable
 
+cache:
+    apt: true
+    directories:
+        # 缓存不经常更改的内容
+        - node_modules
+
 # S: Build Lifecycle
 install:
   - npm install -g hexo-cli
@@ -22,7 +28,7 @@ after_script:
   # 推送到github
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
   # 推送到gitee
-  - git push --force --quiet "https://lijiangwei:${GE_TOKEN}@${GE_REF}" master:master
+  #- git push --force --quiet "https://lijiangwei:${GE_TOKEN}@${GE_REF}" master:master
 # E: Build LifeCycle
 
 branches:
@@ -31,4 +37,4 @@ branches:
 env:
  global:
    - GH_REF: github.com/lijiangwei/lijiangwei.github.io.git
-   - GE_REF: gitee.com/lijiangwei/lijiangwei.git
+   #- GE_REF: gitee.com/lijiangwei/lijiangwei.git

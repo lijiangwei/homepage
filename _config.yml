@@ -88,13 +88,6 @@ deploy:
     branch: master
     message: 更新博客内容{{ now('YYYY-MM-DD HH:mm:ss') }}
 
-backup:
-    type: git
-    theme: next
-    repository:
-       github: https://github.com/lijiangwei/lijiangwei.github.io.git,dev
-       gitcafe: https://github.com/lijiangwei/lijiangwei.github.io.git,dev
-
 search:
   path: search.xml
   field: post

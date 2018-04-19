@@ -1,11 +1,12 @@
 ---
 title: Hexo使用教程
-date: 2018-04-18 09:38:56
-tags: 
+tags:
   - Hexo
   - Next
-categories: 
+categories:
   - 技术
+abbrlink: b8d83faa
+date: 2018-04-18 09:38:56
 ---
 
 >Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
