@@ -19,7 +19,7 @@ gulp.task('minify-html', function() {
          minifyCSS: true,
          minifyURLs: true,
     }))
-    .pipe(gulp.dest('./public'))
+    .pipe(gulp.dest('./public'));
 });
 // 压缩 public/js 目录 js
 gulp.task('minify-js', function() {
