@@ -17,12 +17,15 @@ after_script:
 - git add .
 - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+- git push --force "https://lijiangwei:${secure}@${GE_REF}" master:master
 branches:
   only:
   - master
 env:
   global:
   - GH_REF: github.com/lijiangwei/lijiangwei.github.io.git
+  - GE_REF: gitee.com/lijiangwei/lijiangwei.git
+  - secure: ba7baUEsot1mKE32a7NUJ3kARWhOSgIFxOhuKYGjE/lEYo19FoVto15IoZhfHKEHRjgTEuqtpk2hXj1+/58sb7YuwRzhvq/CyxQ85BPvvOR7awU33CmSZPwr+9APd783DnBN1yVisyxx8+oopSYD/JAJ8jTP+GqmDXl5bjzd2Y1rboknP1i5WVsoHtLMpUJH6JUDwvbAavh1qUhTwwBoCWqERVKJsmkVSD1S5XmT0quFxMdUJiZkIajOzMc0MCJ36oevOZGvq8AqpxrAz/BE14UVa4QJGKtBas/zXXw3wxxvlKgblROi1RokgDUHfIsXxljVk2z8K8k9iOXO0RyTJIDXzNn++0OIBcdUm0DWhNwHiTUGp+CiAwGexEylxisAayKn2Lz+xBUpTiO2vLq0O5ZYLnwc5rj5JEKau4AHbKcWeQQO/s5oVcwInfcv2zn24vkSfCH8UN2cBMZu8uXVTwnB+fyKheMkF1ezeG2lOuFUYL/7sna8w5hUsmVQUfd/ec6cu4ncjgAi6NLPJN7O4ydOxzp6zI9357wMAq1atcanouK7jpGKA75ON4P7/oeby6he0fjDRxNax3hnjfe05HK2Fyji1xv7jrBAxwNbNnbrRZEGl6SeTLdwHP3wm8NJjxkI+g+Pjm2yAMkXeVc9QSsSs4dyrh26CM0mP7IQqDk=
 before_install:
-- openssl aes-256-cbc -K $encrypted_cdd288e44784_key -iv $encrypted_cdd288e44784_iv
-  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+#- openssl aes-256-cbc -K $encrypted_cdd288e44784_key -iv $encrypted_cdd288e44784_iv
+#  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
