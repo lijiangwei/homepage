@@ -14,12 +14,12 @@ after_script:
 # 下载github.io的版本信息
 - git clone --depth=1 --branch=master https://${GH_REF} github.io
 # 下载gitee.io的版本信息
-- git clone --depth=1 --branch=master https://${GE_REF} gitee.io
-- cp -R public publicGitee
+#- git clone --depth=1 --branch=master https://${GE_REF} gitee.io
+#- cp -R public publicGitee
 
 # 拷贝版本信息
 - mv ./github.io/.git ./public
-- mv ./gitee.io/.git ./publicGitee
+#- mv ./gitee.io/.git ./publicGitee
 
 # 推送到github
 - cd ./public
@@ -29,11 +29,11 @@ after_script:
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
 # 推送到gitee
-- cd ../publicGitee
-- git add --all .
-- git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
+#- cd ../publicGitee
+#- git add --all .
+#- git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
 #- git push --force "https://lijiangwei:${gitee_password}@${GE_REF}" master:master
-- git push --force "git@${GE_SSH_REF}" master
+- git push --force --quiet "git@${GE_SSH_REF}" master:master
 branches:
   only:
   - master
