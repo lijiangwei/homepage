@@ -8,7 +8,7 @@ subtitle: 道常无为而无不为
 description: 不断尝试才能发现更好的
 keywords:
 author: xiaosl
-language: zh-Hans
+language: zh-CN
 email: lijiangwei@xiaosl.cn
 timezone:
 
@@ -76,7 +76,7 @@ pagination_dir: page
 plugins: hexo-generator-feed
 
 ## Themes: https://hexo.io/themes/
-theme: nextnew
+theme: next-reloaded
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -93,3 +93,35 @@ search:
   field: post
   format: html
   limit: 10000
+
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: false
+
+filter_optimize:
+  enable: true
+  # remove static resource query string
+  #   - like `?v=1.0.0`
+  remove_query_string: true
+  # remove the surrounding comments in each of the bundled files
+  remove_comments: false
+  css:
+    enable: true
+    # bundle loaded css file into the one
+    bundle: true
+    # use a script block to load css elements dynamically
+    delivery: true
+    # make specific css content inline into the html page
+    #   - only support the full path
+    #   - default is ['css/main.css']
+    inlines:
+    excludes:
+  js:
+    # bundle loaded js file into the one
+    bundle: true
+    excludes:
+  # set the priority of this plugin,
+  # lower means it will be executed first, default is 10
+  priority: 12
