@@ -9,7 +9,6 @@ install:
 script:
 - hexo g
 after_script:
-- echo 'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMuEoYdx6to5oxR60IWj8uoe1aI0X1fKOHWOtLqTg1tsLT1iFwXV5JmFjU46EzeMBV/6EmI1uaRI6HiEPtPtJHE=' >> $HOME/.ssh/known_hosts
 - cd ./public
 - git init
 - git config user.name "lijiangwei"
@@ -32,7 +31,8 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_cdd288e44784_key -iv $encrypted_cdd288e44784_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
+- echo 'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMuEoYdx6to5oxR60IWj8uoe1aI0X1fKOHWOtLqTg1tsLT1iFwXV5JmFjU46EzeMBV/6EmI1uaRI6HiEPtPtJHE=' >> ~/.ssh/known_hosts
 # ssh git push的时候需要认证，这个选项可以不用认证
-#addons:
-#  ssh_known_hosts:
-#  - gitee.com
+addons:
+  ssh_known_hosts:
+  - gitee.com
