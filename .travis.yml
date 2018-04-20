@@ -15,7 +15,7 @@ after_script:
 - git config user.email "544172066@qq.com"
 - git add --all .
 - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
-#- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 #- git push --force "https://lijiangwei:${gitee_password}@${GE_REF}" master:master
 - git push --force "git@${GE_SSH_REF}" master
 branches:

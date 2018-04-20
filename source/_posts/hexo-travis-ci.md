@@ -145,6 +145,17 @@ addons:
 
 至此使用travis同时向github和gitee推送代码的问题已经解决，同时还可以增加自己其他的服务器。
 
+# 部署中遇到的其他问题
+1. travis部署的页面是空页面`hexo g`的时候报错
+```
+$ hexo g
+INFO  Start processing
+INFO  Files loaded in 392 ms
+WARN  No layout: categories/index.html
+WARN  No layout: tags/index.html
+```
+原因是next主题的代码没有提交到源码中，`git clone`下载的代码不全，重新提交代码后问题解决。
+
 参考：
 [https://www.cnblogs.com/dmego/p/7664877.html](https://www.cnblogs.com/dmego/p/7664877.html)
 [http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/](http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/)

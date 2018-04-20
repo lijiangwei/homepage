@@ -131,7 +131,7 @@ busuanzi_count:
 # Baidu Analytics ID
 baidu_analytics: 726d0dd15533fd165eb3a61c78edd605
 ```
-### 集成Gitment评论系统
+### ~~集成Gitment评论系统(废弃)~~
 参考：[https://zonghongyan.github.io/2017/06/29/201706292034/](https://zonghongyan.github.io/2017/06/29/201706292034/)
 
 注意点：
