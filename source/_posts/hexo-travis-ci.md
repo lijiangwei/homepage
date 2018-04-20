@@ -116,6 +116,35 @@ $ openssl aes-256-cbc -K $encrypted_cdd288e44784_key -iv $encrypted_cdd288e44784
 ```
 这种方式应该是可行的，目前暂时没有时间研究这个问题，后续再解决。
 
+## 解决ssh密钥push代码报错
+`travis encrypt-file ~/.ssh/id_rsa --add`命令增加的代码，把-out ~后面的转义符去掉，修改为
+```
+before_install:
+  - openssl aes-256-cbc -K $encrypted_d89376f3278d_key -iv $encrypted_d89376f3278d_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+```
+提交代码后重新测试，执行到git push的时候会提示无法确认gitee.com的真实性，需要用户输入`yes`确认，但是travis不是交互式的，不接收输入。
+```
+The authenticity of host 'gitee.com (120.55.226.24)' can't be established.
+Are you sure you want to continue connecting (yes/no)?
+```
+解决这个问题的方法参考[travis文档: https://docs.travis-ci.com/user/ssh-known-hosts/](https://docs.travis-ci.com/user/ssh-known-hosts/)
+
+有两种方法：
+1. 在`.travis.yml`配置文件中增加下面的配置
+```
+addons:
+  ssh_known_hosts:
+  - gitee.com
+```
+2. 在`.travis.yml`配置文件中把`gitee.com`服务器`ssh`的公钥写到`known_hosts`文件中
+```
+- echo 'Key' >> $HOME/.ssh/known_hosts
+```
+把key替换成`gitee.com`的公钥，key的获取方法参考上面的travis文档的链接。
+
+至此使用travis同时向github和gitee推送代码的问题已经解决，同时还可以增加自己其他的服务器。
+
 参考：
 [https://www.cnblogs.com/dmego/p/7664877.html](https://www.cnblogs.com/dmego/p/7664877.html)
 [http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/](http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/)
