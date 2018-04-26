@@ -36,7 +36,7 @@ after_script:
 - git push --force --quiet "git@${GE_SSH_REF}" master:master
 branches:
   only:
-  - master
+  - next6
 env:
   global:
   - GH_REF: github.com/lijiangwei/lijiangwei.github.io.git
