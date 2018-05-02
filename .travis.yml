@@ -11,28 +11,11 @@ script:
 after_script:
 - git config user.name "lijiangwei"
 - git config user.email "544172066@qq.com"
-# 下载github.io的版本信息
-#- git clone --depth=1 --branch=master https://${GH_REF} github.io
-# 下载gitee.io的版本信息
-#- git clone --depth=1 --branch=master https://${GE_REF} gitee.io
-#- cp -R public publicGitee
-
-# 拷贝版本信息
-#- mv ./github.io/.git ./public
-#- mv ./gitee.io/.git ./publicGitee
-
-# 推送到github
 - cd ./public
 - git init
 - git add --all .
 - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-
-# 推送到gitee
-#- cd ../publicGitee
-#- git add --all .
-#- git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
-#- git push --force "https://lijiangwei:${gitee_password}@${GE_REF}" master:master
 - git push --force --quiet "git@${GE_SSH_REF}" master:master
 branches:
   only:
@@ -43,12 +26,13 @@ env:
   - GE_REF: gitee.com/lijiangwei/lijiangwei.git
   - GE_SSH_REF: gitee.com:lijiangwei/lijiangwei.git
   - secure: ba7baUEsot1mKE32a7NUJ3kARWhOSgIFxOhuKYGjE/lEYo19FoVto15IoZhfHKEHRjgTEuqtpk2hXj1+/58sb7YuwRzhvq/CyxQ85BPvvOR7awU33CmSZPwr+9APd783DnBN1yVisyxx8+oopSYD/JAJ8jTP+GqmDXl5bjzd2Y1rboknP1i5WVsoHtLMpUJH6JUDwvbAavh1qUhTwwBoCWqERVKJsmkVSD1S5XmT0quFxMdUJiZkIajOzMc0MCJ36oevOZGvq8AqpxrAz/BE14UVa4QJGKtBas/zXXw3wxxvlKgblROi1RokgDUHfIsXxljVk2z8K8k9iOXO0RyTJIDXzNn++0OIBcdUm0DWhNwHiTUGp+CiAwGexEylxisAayKn2Lz+xBUpTiO2vLq0O5ZYLnwc5rj5JEKau4AHbKcWeQQO/s5oVcwInfcv2zn24vkSfCH8UN2cBMZu8uXVTwnB+fyKheMkF1ezeG2lOuFUYL/7sna8w5hUsmVQUfd/ec6cu4ncjgAi6NLPJN7O4ydOxzp6zI9357wMAq1atcanouK7jpGKA75ON4P7/oeby6he0fjDRxNax3hnjfe05HK2Fyji1xv7jrBAxwNbNnbrRZEGl6SeTLdwHP3wm8NJjxkI+g+Pjm2yAMkXeVc9QSsSs4dyrh26CM0mP7IQqDk=
+  - secure: izEj6qxHU4JMRDvsIJDYjRPS53scLLiTmKO2rTBBvZOgnZ6y8ypjkrGzgI0dg+hyg2m6fjcTMxOMCs2fINXEpTgARKmbkJY4G2s5lF4w/2i79xCaK2RKzmPERW7WkiypbBfWR7Y0W8KN4VFwaXgukxvXkUEvBpmJBcRnUG6vzVpKDmjPKdID4TJx93M3atTl6y8NWtdfVK6fkTNRDYhZPNckN5sQMN2/BLRIWdrDisNyCffeJctY4gs4ahG0DXeMjOC9soTOMiJK0F9k7bp2LV+GEGDrwrPSGVmjtDBBEled+LFI0F9velcER+JfDNH6nrp/LbS7YaP/l79EIn/Lk7d8LYXpL9xItAPzoEcLkEZupu7ZnJLFHol5h4583nqNIBOu1AiU12TC6pxR/fsC0UeRAGbBCcDyiXfmONaAmH4ExZBtrrYdmQcV9+xD/TTRECr6J8soWRdrOb6QAZiO3/fywUvq/MPOU53jnGK+KibVYSycRqVOCStSiwEQvOSShYtbIYQ1BeFwr/CPCrykHFSoU678eM1P8u3GSEq1mYgNkZhQlrmpegwwBFNVhZCmZbr0aJ7eUheVKYG1SLxvl7AYq0fDOxtWyYFp845KiCS5sgdbw4klkTFdYHSLFJg7X2FoVPhKEwDebNFhvQ3CFL1ukQWebFgjSHQx91cnDOs=
 before_install:
 - openssl aes-256-cbc -K $encrypted_cdd288e44784_key -iv $encrypted_cdd288e44784_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
-- echo 'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMuEoYdx6to5oxR60IWj8uoe1aI0X1fKOHWOtLqTg1tsLT1iFwXV5JmFjU46EzeMBV/6EmI1uaRI6HiEPtPtJHE=' >> ~/.ssh/known_hosts
-# ssh git push的时候需要认证，这个选项可以不用认证
+- echo 'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMuEoYdx6to5oxR60IWj8uoe1aI0X1fKOHWOtLqTg1tsLT1iFwXV5JmFjU46EzeMBV/6EmI1uaRI6HiEPtPtJHE='
+  >> ~/.ssh/known_hosts
 addons:
   ssh_known_hosts:
   - gitee.com
