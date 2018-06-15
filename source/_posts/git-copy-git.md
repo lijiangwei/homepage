@@ -18,6 +18,7 @@ git reset --hard HEAD
 ```
 
 > 由于window、mac、linux系统的换行符不一样，导致mac系统下载下来的代码，git status的时候显示很多文件有修改，可以修改mac系统换行符的设置
+
 ```
 git config --global core.autocrlf false
 ```
