@@ -19,3 +19,8 @@ git config --global credential.helper store
 git config --global http.proxy http://127.0.0.1:808
 git config --global https.proxy https://127.0.0.1:808
 ```
+
+## 拉取远程仓库分支
+```
+git pull <远程库名> <远程分支名>:<本地分支名> 
+```
