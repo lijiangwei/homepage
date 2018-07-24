@@ -67,3 +67,9 @@ pm2 delete all
 ```
 pm2 delete 0
 ```
+
+## 启动程序增加参数
+--后面增加参数
+```
+pm2 start http-server -- -p 8080 -d false
+```
