@@ -10,6 +10,8 @@ categories:
 
 # nginx 教程
 
+> [nginx伪静态规则](https://www.cnblogs.com/tongpao/p/4638257.html)
+
 ## 隐藏html文件后缀
 ```
 # 文件不存在时访问.html文件
