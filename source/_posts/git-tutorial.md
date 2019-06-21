@@ -36,6 +36,9 @@ git config --global -l
 
 ```
 git config --global credential.helper store
+
+# 修改用户名密码
+git config --global credential.helper username
 ```
 
 ## 设置代理
