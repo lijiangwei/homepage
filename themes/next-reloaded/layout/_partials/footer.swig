@@ -62,3 +62,7 @@
   #}{{ theme.footer.custom_text }}{#
 #}</div>
 {% endif %}
+<div>
+  <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png" style="display: inline-block;vertical-align: middle;">
+  <a href="http://www.beian.miit.gov.cn" target="_blank" style="color:#f72b07">京ICP备18021231号</a>
+</div>
